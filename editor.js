@@ -25,10 +25,15 @@ amd.require(['vs/editor/editor.main'], () => {
     language: 'html',
   });
 
-  // editorEl.style.height = (window.innerHeight) + 'px';
-  // editorEl.style.width = (window.innerWidth / 2) + 'px';
-  editor.layout();
+  adjustSizes();
+  window.onresize = () => adjustSizes();
 });
+
+function adjustSizes() {
+  editorEl.style.width = (window.innerWidth) + 'px';
+  editorEl.style.height = (window.innerHeight) + 'px';
+  editor.layout();
+}
 
 const SAMPLE = `
 <b style="width: 90%">hello</b>
