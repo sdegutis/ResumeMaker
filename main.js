@@ -13,7 +13,12 @@ function createWindow() {
   });
 
   editorWindow.loadFile('editor.html');
-  editorWindow.webContents.toggleDevTools();
+  // editorWindow.webContents.toggleDevTools();
+
+  // menu items:
+  // - new, load, save, save as
+  // - toggle dark mode (editor)
+  // - save preview as pdf
 
   const [x, y] = editorWindow.getPosition();
 
