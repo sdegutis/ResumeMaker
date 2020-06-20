@@ -19,7 +19,7 @@ function createWindow() {
   const previewWindow = new electron.BrowserWindow({
     parent: editorWindow,
     closable: false,
-    width: 800,
+    width: 900,
     height: 600,
     webPreferences: {
       nodeIntegration: true,
