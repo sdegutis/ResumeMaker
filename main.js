@@ -34,8 +34,6 @@ function createWindow() {
 
 
   editorWindow.webContents.on('ipc-message', (event, chan, ...args) => {
-    console.log(chan, args);
-
     const [src] = args;
     previewWindow.webContents.send('new-src', src);
   });
