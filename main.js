@@ -33,10 +33,8 @@ function createWindow() {
   previewWindow.loadFile('preview.html');
   previewWindow.webContents.toggleDevTools();
 
-
   editorWindow.webContents.on('ipc-message', (event, chan, ...args) => {
     const [src] = args;
     previewWindow.webContents.send('new-src', src);
   });
-
 }
