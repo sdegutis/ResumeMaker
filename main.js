@@ -12,6 +12,7 @@ function createWindow() {
   });
 
   editorWindow.loadFile('editor.html');
+  editorWindow.webContents.toggleDevTools();
 
   const [x, y] = editorWindow.getPosition();
 
@@ -29,4 +30,13 @@ function createWindow() {
 
   previewWindow.loadFile('preview.html');
   previewWindow.webContents.toggleDevTools();
+
+
+  editorWindow.webContents.on('ipc-message', (event, chan, ...args) => {
+    console.log(chan, args);
+
+    const [src] = args;
+    previewWindow.webContents.send('new-src', src);
+  });
+
 }

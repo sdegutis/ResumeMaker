@@ -1,4 +1,5 @@
 const path = require('path');
+const ipc = require('electron').ipcRenderer;
 const amd = require('./node_modules/monaco-editor/min/vs/loader.js');
 
 const editorEl = document.getElementById('editor');
@@ -27,6 +28,10 @@ amd.require(['vs/editor/editor.main'], () => {
 
   adjustSizes();
   window.onresize = () => adjustSizes();
+
+  const sendNewSrc = () => ipc.send('src-changed', editor.getValue());
+  sendNewSrc();
+  editor.onDidChangeModelContent(() => sendNewSrc());
 });
 
 function adjustSizes() {
@@ -36,6 +41,6 @@ function adjustSizes() {
 }
 
 const SAMPLE = `
-<b style="width: 90%">hello</b>
-<style>body #foo.bar { color: red; }</style>
+<style>b { color: red; }</style>
+<b style="font-weight: bold">hello</b>
 `;

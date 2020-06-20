@@ -1,0 +1,25 @@
+/* PDF */
+@media screen {
+  body {
+    background: #f0f0f0;
+  }
+
+  #root {
+    width: 8.5in;
+    background: #fff;
+    padding: 1in;
+    margin: 2em;
+  }
+}
+
+@page {
+  margin: 1in;
+}
+
+/* Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
