@@ -28,6 +28,7 @@ function createWindow() {
     y: y + 20,
   });
 
+  previewWindow.setMenu(null);
   previewWindow.loadFile('preview.html');
   previewWindow.webContents.toggleDevTools();
 
