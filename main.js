@@ -13,7 +13,7 @@ function createWindow() {
   });
 
   editorWindow.loadFile('editor.html');
-  // editorWindow.webContents.toggleDevTools();
+  editorWindow.webContents.toggleDevTools();
 
   // menu items:
   // - new, load, save, save as
