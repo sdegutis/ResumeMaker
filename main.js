@@ -1,4 +1,5 @@
 const electron = require('electron');
+const path = require('path');
 
 electron.app.whenReady().then(createWindow);
 
@@ -7,7 +8,7 @@ function createWindow() {
     width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: true,
+      preload: path.join(__dirname, 'editor-preload.js'),
     },
   });
 
@@ -22,7 +23,7 @@ function createWindow() {
     width: 900,
     height: 600,
     webPreferences: {
-      nodeIntegration: true,
+      preload: path.join(__dirname, 'preview-preload.js'),
     },
     x: x + 20,
     y: y + 20,
