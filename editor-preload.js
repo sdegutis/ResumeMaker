@@ -30,6 +30,7 @@ function ready() {
   editor = monaco.editor.create(editorEl, {
     value: SAMPLE.trim(),
     language: 'html',
+    theme: 'vs-dark',
   });
 
   adjustSizes();
